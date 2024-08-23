@@ -66,7 +66,7 @@ def export_traj_race_full(file_paths: dict,
     # export race trajectory
     # header = "s_m; x_m; y_m; psi_rad; kappa_radpm; vx_mps; ax_mps2"
     fmt = "%.7f; %.7f; %.7f; %.7f; %.7f; %.7f; %.7f"
-    with open("full_"+file_paths["traj_race_export"], 'ab') as fh:
+    with open(file_paths["traj_race_export"].replace(".csv", "_full.csv"), 'ab') as fh:
         np.savetxt(fh, traj_race, fmt=fmt)
 
 def export_traj_race_light(file_paths: dict,
@@ -75,7 +75,7 @@ def export_traj_race_light(file_paths: dict,
     # export race trajectory
     # header = "x_m; y_m; vx_mps"
     fmt = "%.7f,%.7f,%.7f"
-    with open("light_"+file_paths["traj_race_export"], 'ab') as fh:
+    with open(file_paths["traj_race_export"].replace(".csv", "_light.csv"), 'ab') as fh:
         np.savetxt(fh, traj_race[:, [1,2,5]], fmt=fmt)
 
 # testing --------------------------------------------------------------------------------------------------------------
