@@ -60,6 +60,24 @@ def export_traj_race_f110(file_paths: dict,
     with open(file_paths["traj_race_export"], 'ab') as fh:
         np.savetxt(fh, traj_race[:, [1,2,5]], fmt=fmt, comments='')
 
+def export_traj_race_full(file_paths: dict,
+                     traj_race: np.ndarray) -> None:
+
+    # export race trajectory
+    header = "s_m; x_m; y_m; psi_rad; kappa_radpm; vx_mps; ax_mps2"
+    fmt = "%.7f; %.7f; %.7f; %.7f; %.7f; %.7f; %.7f"
+    with open("full_"+file_paths["traj_race_export"], 'ab') as fh:
+        np.savetxt(fh, traj_race, fmt=fmt, header=header)
+
+def export_traj_race_light(file_paths: dict,
+                     traj_race: np.ndarray) -> None:
+
+    # export race trajectory
+    header = "x_m; y_m; vx_mps"
+    fmt = "%.7f,%.7f,%.7f"
+    with open("light_"+file_paths["traj_race_export"], 'ab') as fh:
+        np.savetxt(fh, traj_race[:, [1,2,5]], fmt=fmt, header=header)
+
 # testing --------------------------------------------------------------------------------------------------------------
 if __name__ == "__main__":
     pass
