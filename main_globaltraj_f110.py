@@ -550,9 +550,9 @@ bound1, bound2 = helper_funcs_glob.src.check_traj.\
 
 # export race trajectory  to CSV
 if "traj_race_export" in file_paths.keys():
-    helper_funcs_glob.src.export_traj_race.export_traj_race_f110(file_paths=file_paths,
-                                                            traj_race=traj_race_cl)
     helper_funcs_glob.src.export_traj_race.export_traj_race_full(file_paths=file_paths,
+                                                            traj_race=traj_race_cl)
+    helper_funcs_glob.src.export_traj_race.export_traj_race_light(file_paths=file_paths,
                                                             traj_race=traj_race_cl)
 
 # if requested, export trajectory including map information (via normal vectors) to CSV
